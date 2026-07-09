@@ -1,0 +1,37 @@
+/* Anvil roles for container components such as FlowPanels and ColumnPanels */
+
+.anvil-role-w-full {
+  width: 100%;
+}
+.anvil-role-h-full {
+  height: 100%;
+}
+.anvil-role-flex {
+  display: flex !important;
+}
+.anvil-role-flex-1 {
+  flex: 1 1 0%;
+}
+.anvil-role-flex-initial {
+  flex: 0 1 auto;
+}
+.anvil-role-no-padding {
+  padding: 0;
+}
+.anvil-role-no-padding > .label-text, .anvil-role-no-padding > .link-text {
+  padding: 0;
+}
+.anvil-role-items-center {
+  align-items: center;
+}
+
+.anvil-role-items-end > div {
+  align-items: end;
+}
+
+.anvil-role-bottom-border {
+  border-bottom: 5px solid var(--grey-050);
+  padding-bottom: 10px;
+}
+
+

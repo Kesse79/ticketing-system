@@ -1,0 +1,91 @@
+color_scheme:
+  colors:
+  - {color: '#ffffff', name: White}
+  - {color: '#d7d7e1', name: Primary 100}
+  - {color: '#b0aec2', name: Primary 200}
+  - {color: '#8886a4', name: Primary 300}
+  - {color: '#615d85', name: Primary 400}
+  - {color: '#393567', name: Primary 500}
+  - {color: '#2e2a52', name: Primary 600}
+  - {color: '#22203e', name: Primary 700}
+  - {color: '#171529', name: Primary 800}
+  - {color: '#0b0b15', name: Primary 900}
+  - {color: '#ccffef', name: Secondary 100}
+  - {color: '#99ffdf', name: Secondary 200}
+  - {color: '#66ffcf', name: Secondary 300}
+  - {color: '#33ffbf', name: Secondary 400}
+  - {color: '#00ffaf', name: Secondary 500}
+  - {color: '#00cc8c', name: Secondary 600}
+  - {color: '#009969', name: Secondary 700}
+  - {color: '#006646', name: Secondary 800}
+  - {color: '#003323', name: Secondary 900}
+  - {color: '#e9e8e8', name: Grey 050}
+  - {color: '#d3d2d1', name: Grey 100}
+  - {color: '#a7a4a4', name: Grey 200}
+  - {color: '#7a7776', name: Grey 300}
+  - {color: '#4e4949', name: Grey 400}
+  - {color: '#221c1b', name: Grey 500}
+  - {color: '#1b1616', name: Grey 600}
+  - {color: '#141110', name: Grey 700}
+  - {color: '#0e0b0b', name: Grey 800}
+  - {color: '#070605', name: Grey 900}
+  - {color: '#030303', name: Grey 950}
+  - {color: '#e5e3f8', name: Lilac 100}
+  - {color: '#cbc6f0', name: Lilac 200}
+  - {color: '#b2aae9', name: Lilac 300}
+  - {color: '#988de1', name: Lilac 400}
+  - {color: '#7e71da', name: Lilac 500}
+  - {color: '#655aae', name: Lilac 600}
+  - {color: '#4c4483', name: Lilac 700}
+  - {color: '#3f396d', name: Lilac 750}
+  - {color: '#322d57', name: Lilac 800}
+  - {color: '#262241', name: Lilac 850}
+  - {color: '#19172c', name: Lilac 900}
+  - {color: '#fed9d5', name: Error 100}
+  - {color: '#feb2ab', name: Error 200}
+  - {color: '#fd8c82', name: Error 300}
+  - {color: '#fd6558', name: Error 400}
+  - {color: '#fc3f2e', name: Error 500}
+  - {color: '#ca3225', name: Error 600}
+  - {color: '#97261c', name: Error 700}
+  - {color: '#651912', name: Error 800}
+  - {color: '#320d09', name: Error 900}
+  - {color: '#ebebf0', name: Primary 050}
+  - {color: '#f3f3f3', name: Grey 025}
+  - {color: '#f3f4f8', name: Primary 025}
+roles:
+- {name: w-full}
+- {name: h-full}
+- {name: flex}
+- {name: flex-1}
+- {name: flex-initial}
+- {name: no-padding}
+- {name: stat-card}
+- {name: stat-card-down}
+- {name: stat-card-up}
+- {name: head-title}
+- {name: recent-ticket-card}
+- {components: null, name: assign-customer-card}
+- {name: assigned}
+- {name: add-new-customer-panel}
+- {name: all-tickets-card}
+- {name: ticket-status-indicator}
+- {name: ticket-status-indicator-closed}
+- {name: all-tickets-card-selected}
+- {name: form-component}
+- {name: text-form-component}
+- {name: tickets-control-bar}
+- {name: items-center}
+- {name: muted-dropdown}
+- {name: letter-group-letter}
+- {name: all-customers-card}
+- {name: opened-customer}
+- {name: customers-header-bar}
+- {name: customers-control-bar}
+- {name: ticket-message}
+- {name: items-end}
+- {name: search-box}
+- {name: pill-label}
+- {name: bottom-border}
+- {name: new-ticket-select-component}
+- {name: new-ticket-text-component}

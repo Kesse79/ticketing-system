@@ -1,0 +1,341 @@
+components_by_slot:
+  form_scrolling_slot:
+  - components:
+    - layout_properties: {slot: spacer-slot}
+      name: label_2
+      properties: {align: left, role: head-title, text: Ticket Filters}
+      type: Label
+    layout_properties: {}
+    name: spacer_1
+    properties:
+      spacing:
+        padding: [50px, 35px, null, 35px]
+    type: form:Components.Reusable.Spacer
+  - components:
+    - components:
+      - layout_properties: {grid_position: 'PADJIA,FTOYZW'}
+        name: label_3
+        properties: {text: Category}
+        type: Label
+      - data_bindings:
+        - {code: self.categories, property: items, writeback: false}
+        - {code: 'self.filters[''category'']', property: selected_value, writeback: true}
+        layout_properties: {grid_position: 'PADJIA,LRNTWN'}
+        name: category_dropdown
+        properties: {include_placeholder: true, placeholder: All, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'ZQHNEA,MMEFOF'}
+        name: label_4
+        properties: {text: Status}
+        type: Label
+      - data_bindings:
+        - {code: self.status, property: items, writeback: false}
+        - {code: 'self.filters[''status'']', property: selected_value, writeback: true}
+        layout_properties: {grid_position: 'ZQHNEA,VQDQTG'}
+        name: status_dropdown
+        properties: {include_placeholder: true, placeholder: All, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'YBQNUS,BWEQHJ'}
+        name: label_5
+        properties: {text: Priority}
+        type: Label
+      - data_bindings:
+        - {code: self.priorities, property: items, writeback: false}
+        - {code: 'self.filters[''priority'']', property: selected_value, writeback: true}
+        layout_properties: {grid_position: 'YBQNUS,JKNINT'}
+        name: priority_dropdown
+        properties: {include_placeholder: true, placeholder: All, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'IXWBLB,LXZDMQ'}
+        name: label_6
+        properties: {text: Customer}
+        type: Label
+      - data_bindings:
+        - {code: self.customers, property: items, writeback: false}
+        - {code: 'self.filters[''customer'']', property: selected_value, writeback: true}
+        layout_properties: {grid_position: 'IXWBLB,PRCVER'}
+        name: customer_dropdown
+        properties: {include_placeholder: true, placeholder: All, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'AFJAWZ,EHWJOI'}
+        name: label_7
+        properties: {text: Agent}
+        type: Label
+      - data_bindings:
+        - {code: self.owners, property: items, writeback: false}
+        - {code: 'self.filters[''owner'']', property: selected_value, writeback: true}
+        layout_properties: {grid_position: 'AFJAWZ,DNMGDB'}
+        name: agent_dropdown_dropdown
+        properties: {include_placeholder: true, placeholder: All, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'FZEPWF,PLCSBX'}
+        name: label_8
+        properties: {text: Created between}
+        type: Label
+      - data_bindings:
+        - {code: 'self.date_filter[''start'']', property: date, writeback: true}
+        layout_properties: {grid_position: 'DCAHSS,HDPFKN'}
+        name: start_date_picker
+        properties: {format: '%d/%m/%Y', placeholder: start date, role: form-component}
+        type: DatePicker
+      - data_bindings:
+        - {code: 'self.date_filter[''end'']', property: date, writeback: true}
+        layout_properties: {grid_position: 'DCAHSS,XRXVRJ'}
+        name: end_date_picker
+        properties: {format: '%d/%m/%Y', placeholder: end date, role: form-component}
+        type: DatePicker
+      - layout_properties: {grid_position: 'ZJWFRM,OCAUWK'}
+        name: label_9
+        properties: {text: Closed between}
+        type: Label
+      - data_bindings:
+        - {code: 'self.date_filter[''closed_start'']', property: date, writeback: true}
+        layout_properties: {grid_position: 'UHGPYD,CADDMP'}
+        name: start_date_closed
+        properties: {format: '%d/%m/%Y', placeholder: start date, role: form-component}
+        type: DatePicker
+      - data_bindings:
+        - {code: 'self.date_filter[''closed_end'']', property: date, writeback: true}
+        layout_properties: {grid_position: 'UHGPYD,MOJGUX'}
+        name: end_date_closed
+        properties: {format: '%d/%m/%Y', placeholder: end date, role: form-component}
+        type: DatePicker
+      layout_properties: {slot: spacer-slot}
+      name: column_panel_1
+      properties: {col_widths: '{"BWEQHJ":20,"JKNINT":40,"FTOYZW":20,"LRNTWN":40,"EHWJOI":20,"DNMGDB":40,"LXZDMQ":20,"PRCVER":40,"MMEFOF":20,"VQDQTG":40}', spacing_below: medium}
+      type: ColumnPanel
+    layout_properties: {}
+    name: spacer_1_copy
+    properties:
+      spacing:
+        padding: ['', 35px, null, 35px]
+    type: form:Components.Reusable.Spacer
+  - components:
+    - layout_properties: {slot: button-text-slot}
+      name: label_2_copy_3
+      properties: {bold: true, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: Apply Filters}
+      type: Label
+    event_bindings: {click: apply_filter_button_click}
+    layout_properties: {}
+    name: apply_filter_button
+    properties: {align: center, size: small, visible: true}
+    type: form:Components.Reusable.AppButton
+  - components: []
+    event_bindings: {click: clear_filters_link_click}
+    layout_properties: {}
+    name: clear_filters_link
+    properties: {align: center, font_size: 14, foreground: 'theme:Grey 300', text: Clear Filters}
+    type: Link
+  form_static_slot: []
+  primary_scrolling_slot:
+  - components:
+    - data_bindings:
+      - {code: self.filtered_tickets, property: items, writeback: false}
+      layout_properties: {}
+      name: tickets_repeating_panel
+      properties: {item_template: Components.Ticket.AllTicketsCard}
+      type: RepeatingPanel
+    layout_properties: {}
+    name: data_grid_1
+    properties:
+      auto_header: false
+      columns:
+      - {data_key: selected, expand: false, id: JKSDUP, title: Selected, width: 36.345703125}
+      - {data_key: avatar, expand: false, id: VJQQOR, title: Avatar, width: 70.2783203125}
+      - {data_key: details, expand: true, id: OJLQEN, title: Details}
+      - {data_key: date, expand: false, id: LOEAUW, title: Date, width: 164.9482421875}
+      - {data_key: dots, expand: false, id: RQUJBD, title: Dots, width: 34.6591796875}
+      - {data_key: priority, expand: false, id: GCPAYM, title: Priority, width: 165.7216796875}
+      rows_per_page: 10
+      show_page_controls: false
+    type: DataGrid
+  primary_static_slot:
+  - components:
+    - components:
+      - components:
+        - event_bindings: {change: select_all_box_change}
+          layout_properties: {grid_position: 'NFGNAT,QWJKHF'}
+          name: select_all_box
+          properties: {align: left, background: '', bold: true, border: '', checked: false, enabled: true, font: '', font_size: 16, foreground: 'theme:Grey 300', italic: false, role: null, spacing_above: none, spacing_below: none, text: Select all, tooltip: '', underline: false, visible: true}
+          type: CheckBox
+        - event_bindings: {click: close_tickets_link_click}
+          layout_properties: {}
+          name: close_tickets_link
+          properties:
+            align: left
+            background: ''
+            bold: true
+            border: ''
+            col_spacing: medium
+            col_widths: '{}'
+            font: ''
+            font_size: 16
+            foreground: theme:Lilac 500
+            icon: ''
+            icon_align: left
+            italic: false
+            role: [flex, items-center]
+            spacing_above: none
+            spacing_below: none
+            text: Close
+            tooltip: ''
+            underline: false
+            url: ''
+            visible: true
+            wrap_on: mobile
+          type: Link
+        - components:
+          - layout_properties: {}
+            name: label_2_copy
+            properties: {align: left, background: '', bold: false, border: '', font: '', font_size: 16, foreground: 'theme:Grey 300', icon: '', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: none, text: 'Sort by: ', tooltip: '', underline: false, visible: true}
+            type: Label
+          - event_bindings: {change: sort_dropdown_change}
+            layout_properties: {}
+            name: sort_dropdown
+            properties:
+              align: full
+              background: ''
+              bold: true
+              border: ''
+              enabled: true
+              font: ''
+              font_size: 16
+              foreground: theme:Grey 300
+              include_placeholder: false
+              italic: false
+              items: [Date, Agent, Priority]
+              placeholder: ''
+              role: [form-component, muted-dropdown]
+              spacing_above: none
+              spacing_below: none
+              tooltip: ''
+              underline: false
+              visible: true
+            type: DropDown
+          layout_properties: {}
+          name: sort_container
+          properties: {spacing: none, spacing_above: none, spacing_below: none, vertical_align: middle}
+          type: FlowPanel
+        - data_bindings: []
+          layout_properties: {}
+          name: selected_label
+          properties: {align: left, background: '', bold: false, border: '', font: '', font_size: 16, foreground: 'theme:Grey 400', icon: '', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: none, text: '', tooltip: '', underline: false, visible: true}
+          type: Label
+        - event_bindings: {click: clear_selected_link_click}
+          layout_properties: {}
+          name: clear_selected_link
+          properties: {font_size: 16, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, text: Clear Selected, visible: false}
+          type: Link
+        layout_properties: {}
+        name: flow_panel_3
+        properties:
+          align: left
+          background: ''
+          border: ''
+          foreground: ''
+          role: [flex, items-center]
+          spacing: small
+          spacing_above: none
+          spacing_below: none
+          tooltip: ''
+          vertical_align: middle
+          visible: true
+        type: FlowPanel
+      layout_properties: {}
+      name: flow_panel_2
+      properties: {align: justify, background: '', border: '', foreground: '', role: null, spacing: medium, spacing_above: none, spacing_below: small, tooltip: '', vertical_align: middle, visible: true}
+      type: FlowPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'KTOEHV,BEMWLW'}
+          name: label_12
+          properties: {font_size: 10, icon: 'fa:chevron-left', role: no-padding, spacing_above: none, spacing_below: none}
+          type: Label
+        - layout_properties: {grid_position: 'KTOEHV,JNSKDD'}
+          name: label_12_copy
+          properties: {font_size: 10, icon: 'fa:chevron-left', role: no-padding, spacing_above: none, spacing_below: none}
+          type: Label
+        event_bindings: {click: first_page_link_click}
+        layout_properties: {width: 30}
+        name: first_page_link
+        properties:
+          col_spacing: none
+          col_widths: '{"BEMWLW":30}'
+          foreground: theme:Grey 300
+          role: [flex, items-center]
+          spacing_above: none
+          spacing_below: none
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'KTOEHV,BEMWLW'}
+          name: label_12_copy_2
+          properties: {font_size: 10, icon: 'fa:chevron-left', role: no-padding, spacing_above: none, spacing_below: none}
+          type: Label
+        event_bindings: {click: previous_page_link_click}
+        layout_properties: {width: 30}
+        name: previous_page_link
+        properties:
+          col_spacing: none
+          col_widths: '{"BEMWLW":30}'
+          foreground: theme:Grey 300
+          role: [flex, items-center]
+          spacing_above: none
+          spacing_below: none
+        type: Link
+      - layout_properties: {}
+        name: pagination_label
+        properties: {role: no-padding, spacing_above: none, spacing_below: none}
+        type: Label
+      - components:
+        - layout_properties: {grid_position: 'KTOEHV,BEMWLW'}
+          name: label_12_copy_2_copy
+          properties: {font_size: 10, icon: 'fa:chevron-right', role: no-padding, spacing_above: none, spacing_below: none}
+          type: Label
+        event_bindings: {click: next_page_link_click}
+        layout_properties: {width: 30}
+        name: next_page_link
+        properties:
+          col_spacing: none
+          col_widths: '{"BEMWLW":30}'
+          foreground: theme:Grey 300
+          role: [flex, items-center]
+          spacing_above: none
+          spacing_below: none
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'KTOEHV,BEMWLW'}
+          name: label_12_copy_3
+          properties: {font_size: 10, icon: 'fa:chevron-right', role: no-padding, spacing_above: none, spacing_below: none}
+          type: Label
+        - layout_properties: {grid_position: 'KTOEHV,JNSKDD'}
+          name: label_12_copy_copy
+          properties: {font_size: 10, icon: 'fa:chevron-right', role: no-padding, spacing_above: none, spacing_below: none}
+          type: Label
+        event_bindings: {click: last_page_link_click}
+        layout_properties: {width: 30}
+        name: last_page_link
+        properties:
+          col_spacing: none
+          col_widths: '{"BEMWLW":30}'
+          foreground: theme:Grey 300
+          role: [flex, items-center]
+          spacing_above: none
+          spacing_below: none
+        type: Link
+      layout_properties: {}
+      name: flow_panel_4
+      properties: {spacing: small, spacing_above: none, spacing_below: none, vertical_align: middle}
+      type: FlowPanel
+    layout_properties: {}
+    name: header_container
+    properties: {align: justify, role: tickets-control-bar, spacing: tiny, spacing_above: medium, spacing_below: none, vertical_align: middle}
+    type: FlowPanel
+  title_slot:
+  - layout_properties: {}
+    name: label_1
+    properties: {text: Tickets}
+    type: Label
+is_package: true
+layout:
+  form_event_bindings: {}
+  type: form:Layouts.AppLayouts.PrimaryWithForm

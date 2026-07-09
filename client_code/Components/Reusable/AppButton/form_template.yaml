@@ -1,0 +1,30 @@
+components: []
+container:
+  properties:
+    html: "<div anvil-name=\"app-button-component\" style=\"display: flex\">\n  <div anvil-name=\"app-button\" class=\"button-container\">\n    <div anvil-name=\"button-icon\" anvil-slot=\"icon-slot\">\n      \n    </div>\n    <div anvil-name=\"button-text\" anvil-slot=\"button-text-slot\">\n      <p anvil-if-slot-empty=\"button-text-slot\">Text text</p>\n    </div>\n  </div>\n</div>"
+  type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+events:
+- {default_event: true, name: click}
+is_package: true
+properties:
+- default_binding_prop: true
+  default_value: small
+  important: true
+  name: size
+  options: [small, large]
+  type: enum
+- default_value: primary
+  important: true
+  name: appearance
+  options: [primary, secondary]
+  type: enum
+- default_value: left
+  designer_hint: align-horizontal
+  important: true
+  name: align
+  options: [left, center, right]
+  type: enum
+- {default_value: true, designer_hint: visible, important: true, name: visible, type: boolean}
+- {default_value: true, designer_hint: enabled, important: true, name: enabled, type: boolean}

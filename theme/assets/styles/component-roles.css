@@ -1,0 +1,105 @@
+/* Anvil roles for display and form components such as labels and textboxes */
+
+.anvil-role-head-title > .label-text{
+  font-size: 20px;
+}
+
+.anvil-role-form-component {
+  height: 50px;
+  background: var(--white);
+  padding: 0 30px;
+  border: 1px solid var(--grey-050);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.anvil-role-form-component .form-control{
+  padding: 0 10px 0 0px;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  color: var(--grey-600);
+}
+.form-control[disabled]{
+  color: var(--grey-200);
+}
+
+.anvil-role-muted-dropdown {
+  background: transparent;
+  border: none;
+  height: 30px;
+  padding: 0;
+}
+.anvil-role-muted-dropdown .form-control{
+  border: none;
+  background-color: unset;
+  text-align: center;
+}
+
+.anvil-role-text-form-component {
+  border: 1px solid var(--grey-050);
+  border-radius: 5px;
+  min-height: 50px;
+  padding: 0 30px;
+}
+.anvil-role-text-form-component.form-control{
+  box-shadow: none;
+  background: var(--white);
+}
+textarea.anvil-role-text-form-component.form-control{
+  padding: 16px;
+}
+
+.anvil-role-search-box {
+  color: var(--grey-950);
+  background-color: var(--grey-050);
+  padding: 30px;
+  height: 60px !important; 
+  border-radius: 30px;
+  border: none;
+}
+.anvil-role-search-box.form-control {
+  box-shadow: none;
+}
+
+.anvil-role-pill-label {
+  border-radius: 18px;
+}
+.anvil-role-pill-label .label-text{
+  padding: 0px 15px 1px 15px;
+}
+
+.anvil-role-new-ticket-select-component {
+  font-size: 14px;
+  height: 27px;
+  background: var(--grey-100);
+  padding: 0 10px;
+  border: 1px solid var(--grey-050);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.anvil-role-new-ticket-select-component .form-control{
+  padding: 0 10px 0 0px;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  color: var(--grey-600);
+  height: inherit;
+}
+.anvil-role-new-ticket-select-component .form-control::placeholder {
+  color: var(--grey-600);
+}
+.anvil-role-new-ticket-select-component.form-control{
+  box-shadow: none;
+  background: transparent;
+}
+.anvil-role-new-ticket-select-component.anvil-datepicker .fa-calendar {
+  right: 15px;
+}
+
+.anvil-role-new-ticket-text-component {
+  background: var(--white);
+  box-shadow: none;
+  border: none;
+}

@@ -1,0 +1,55 @@
+components:
+- event_bindings: {change: checkbox_change}
+  layout_properties: {column: JKSDUP}
+  name: checkbox
+  properties: {align: left, spacing_above: none, spacing_below: none, text: '', visible: true}
+  type: CheckBox
+- layout_properties: {column: VJQQOR}
+  name: user_1
+  properties: {align: center, primary_fill: 'theme:Lilac 700', secondary_fill: 'theme:Primary 200', size: 50}
+  type: form:Components.Icons.User
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''first_name'']', property: text, writeback: false}
+      layout_properties: {}
+      name: first_label
+      properties: {spacing_above: none, spacing_below: none, text: First}
+      type: Label
+    - data_bindings:
+      - {code: 'self.item[''last_name'']', property: text, writeback: false}
+      layout_properties: {}
+      name: last_label
+      properties: {bold: true, foreground: '', spacing_above: none, spacing_below: none, text: last}
+      type: Label
+    layout_properties: {grid_position: 'VGLRJW,UWEQUS'}
+    name: flow_panel_1
+    properties: {foreground: 'theme:Grey 800', spacing: tiny, spacing_above: none, spacing_below: none, vertical_align: middle}
+    type: FlowPanel
+  event_bindings: {click: customer_name_link_click}
+  layout_properties: {column: OJLQEN}
+  name: customer_name_link
+  properties: {spacing_above: none, spacing_below: none}
+  type: Link
+- data_bindings:
+  - {code: 'self.item[''company'']', property: text, writeback: false}
+  layout_properties: {column: EAFXXB}
+  name: label_3
+  properties: {font_size: 14, foreground: 'theme:Grey 200', spacing_above: none, spacing_below: none, text: company}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''phone'']', property: text, writeback: false}
+  layout_properties: {column: HPNQAM}
+  name: label_4
+  properties: {font_size: 14, foreground: 'theme:Grey 200', spacing_above: none, spacing_below: none, text: phone}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''email'']', property: text, writeback: false}
+  layout_properties: {column: LJTBEU}
+  name: label_5
+  properties: {font_size: 14, foreground: 'theme:Grey 200', spacing_above: none, spacing_below: none, text: email}
+  type: Label
+container:
+  properties: {role: all-customers-card}
+  type: DataRowPanel
+is_package: true

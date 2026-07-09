@@ -1,0 +1,28 @@
+components: []
+container:
+  properties:
+    html: |+
+      <div anvil-name="component" style="display: flex">
+        <div style="display:flex">
+          <?xml version="1.0" encoding="utf-8"?>
+          <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+          <svg anvil-name="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path class="primary-path" d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </div>
+      </div>
+
+  type: HtmlTemplate
+custom_component: true
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', important: true, name: fill, type: color}
+- {description: '16', important: true, name: size, type: number}
+- default_value: left
+  designer_hint: align-horizontal
+  important: true
+  name: align
+  options: [left, center, right, full]
+  type: enum
+- {default_value: true, designer_hint: visible, important: true, name: visible, type: boolean}

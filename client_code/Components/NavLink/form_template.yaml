@@ -1,0 +1,22 @@
+components: []
+container:
+  properties:
+    html: |-
+      <div anvil-name="navlink-component" class="navlink-component">
+        <div anvil-slot="navlink-icon-slot">
+          <p anvil-if-slot-empty="navlink-icon-slot">囧</p>
+        </div>
+        <div anvil-name="navlink-text" class="navlink-text" >
+          Navigation Link
+        </div>
+      </div>
+  type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+events:
+- {default_event: true, name: click}
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', important: true, name: text, type: string}
+- {default_value: false, important: true, name: active, type: boolean}
+- {default_value: '', important: true, name: name, type: string}

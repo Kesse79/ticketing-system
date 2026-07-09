@@ -1,0 +1,9 @@
+components: []
+container:
+  properties:
+    html: "<div anvil-name=\"rail-container\" class=\"section-containers scrolling-rail\" >          \n<!--   <div anvil-name=\"form-content-static\" class=\"static-section \" anvil-slot=\"form-content-static-slot\" ></div> -->\n  <div anvil-name=\"rail-content\" class=\"scrolling-section rail-content\" anvil-slot=\"rail-content-slot\" ></div>\n</div>"
+    role: flex-initial
+  type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+is_package: true

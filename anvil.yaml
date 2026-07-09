@@ -1,0 +1,189 @@
+allow_embedding: false
+correct_dependency_ids: {}
+db_schema:
+  categories:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: Categories
+  currentticketno:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: number
+      type: number
+    server: full
+    title: CurrentTicketNo
+  customers:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: first_name
+      type: string
+    - admin_ui: {width: 200}
+      name: last_name
+      type: string
+    - admin_ui: {width: 200}
+      name: title
+      type: string
+    - admin_ui: {width: 200}
+      name: company
+      type: string
+    - admin_ui: {width: 200}
+      name: email
+      type: string
+    - admin_ui: {width: 200}
+      name: phone
+      type: string
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    server: full
+    title: Customers
+  messages:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: details
+      type: string
+    - admin_ui: {width: 200}
+      name: type
+      target: types
+      type: link_single
+    - admin_ui: {width: 200}
+      name: ticket
+      target: tickets
+      type: link_single
+    - admin_ui: {width: 200}
+      name: date
+      type: datetime
+    - admin_ui: {width: 200}
+      name: agent
+      target: users
+      type: link_single
+    server: full
+    title: Messages
+  priorities:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: Priorities
+  status:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: Status
+  tickets:
+    client: search
+    columns:
+    - admin_ui: {width: 135}
+      name: title
+      type: string
+    - admin_ui: {width: 125}
+      name: priority
+      target: priorities
+      type: link_single
+    - admin_ui: {width: 116}
+      name: status
+      target: status
+      type: link_single
+    - admin_ui: {width: 172}
+      name: category
+      target: categories
+      type: link_single
+    - admin_ui: {width: 200}
+      name: date
+      type: datetime
+    - admin_ui: {width: 111}
+      name: customer
+      target: customers
+      type: link_single
+    - admin_ui: {width: 117}
+      name: due
+      type: date
+    - admin_ui: {width: 196}
+      name: owner
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: closed
+      type: datetime
+    - admin_ui: {order: 10, width: 108}
+      client_hidden: false
+      name: number
+      type: number
+    - admin_ui: {width: 200}
+      name: externals
+      target: customers
+      type: link_multiple
+    server: full
+    title: Tickets
+  types:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: Types
+  users:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: email
+      type: string
+    - admin_ui: {width: 100}
+      name: enabled
+      type: bool
+    - admin_ui: {width: 200}
+      name: signed_up
+      type: datetime
+    - admin_ui: {width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: Users
+dependencies: []
+name: Clone of Ticketing System
+native_deps:
+  head_html: |-
+    <link rel="stylesheet" href="_/theme/styles/app.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+package_name: Ticketing_System
+runtime_options:
+  client_version: '3'
+  legacy_features: {__dict__: true, bootstrap3: true, class_names: true, root_container: true}
+  server_spec: {base: python310-minimal}
+  server_spec_disabled: {base: python310-standard, requirements: ''}
+  server_version: python3-full
+  version: 3
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true, use_google: true}
+  server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
+startup: {module: StartUp, type: module}
+startup_form: null

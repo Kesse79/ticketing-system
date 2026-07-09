@@ -1,0 +1,293 @@
+components_by_slot:
+  details_scrolling_slot:
+  - data_bindings:
+    - {code: self.customer_tickets, property: item, writeback: false}
+    layout_properties: {}
+    name: recent_tickets_1
+    properties: {}
+    type: form:Components.Ticket.RecentTickets
+  details_static_slot:
+  - components:
+    - layout_properties: {slot: spacer-slot}
+      name: label_7
+      properties: {font_size: 20, foreground: 'theme:Secondary 500', spacing_above: none, spacing_below: none, text: Customer Details}
+      type: Label
+    - data_bindings:
+      - {code: 'self.ticket[''customer'']', property: item, writeback: false}
+      layout_properties: {slot: spacer-slot}
+      name: customer_details_1
+      properties: {}
+      type: form:Components.Customer.CustomerDetails
+    - layout_properties: {slot: spacer-slot}
+      name: label_5_copy
+      properties: {font_size: 20, foreground: 'theme:Secondary 500', text: Recent Tickets}
+      type: Label
+    layout_properties: {}
+    name: spacer_3
+    properties:
+      spacing:
+        padding: [50px, 35px, null, 35px]
+    type: form:Components.Reusable.Spacer
+  form_scrolling_slot:
+  - components:
+    - components:
+      - layout_properties: {grid_position: 'WWTLJX,JEHSDG'}
+        name: label_2_copy_copy
+        properties: {font_size: 15, text: Title}
+        type: Label
+      - data_bindings:
+        - {code: 'self.ticket_copy[''title'']', property: text, writeback: true}
+        - {code: not self.ticket_locked, property: enabled, writeback: false}
+        event_bindings: {lost_focus: update_title, pressed_enter: update_title}
+        layout_properties: {grid_position: 'WWTLJX,PJXTPW'}
+        name: title_box
+        properties: {enabled: false, role: text-form-component, visible: true}
+        type: TextBox
+      - layout_properties: {grid_position: 'YBKLCY,SDCMLR'}
+        name: label_2_copy
+        properties: {font_size: 15, text: Category}
+        type: Label
+      - data_bindings:
+        - {code: self.categories, property: items, writeback: false}
+        - {code: 'self.ticket_copy[''category'']', property: selected_value, writeback: true}
+        - {code: not self.ticket_locked, property: enabled, writeback: false}
+        event_bindings: {change: update_ticket}
+        layout_properties: {grid_position: 'YBKLCY,WBLDCL'}
+        name: category_dropdown
+        properties: {enabled: false, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'JWNKZK,PPQYOY'}
+        name: label_2
+        properties: {font_size: 15, text: Status}
+        type: Label
+      - data_bindings:
+        - {code: self.status, property: items, writeback: false}
+        - {code: 'self.ticket_copy[''status'']', property: selected_value, writeback: true}
+        - {code: not self.ticket_locked, property: enabled, writeback: false}
+        event_bindings: {change: update_ticket}
+        layout_properties: {grid_position: 'JWNKZK,OHXWXB'}
+        name: status_dropdown
+        properties: {enabled: false, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'PYWWPR,NWMJML'}
+        name: label_3
+        properties: {font_size: 15, text: Priority}
+        type: Label
+      - data_bindings:
+        - {code: self.priorities, property: items, writeback: false}
+        - {code: 'self.ticket_copy[''priority'']', property: selected_value, writeback: true}
+        - {code: not self.ticket_locked, property: enabled, writeback: false}
+        event_bindings: {change: update_ticket_priority}
+        layout_properties: {grid_position: 'PYWWPR,YNJSSD'}
+        name: priority_dropdown
+        properties: {enabled: false, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'MMZHLH,HUPCIV'}
+        name: label_4
+        properties: {font_size: 15, text: Agent}
+        type: Label
+      - data_bindings:
+        - {code: self.agents, property: items, writeback: false}
+        - {code: 'self.ticket_copy[''owner'']', property: selected_value, writeback: true}
+        - {code: not self.ticket_locked, property: enabled, writeback: false}
+        event_bindings: {change: update_ticket}
+        layout_properties: {grid_position: 'MMZHLH,JMCYXG'}
+        name: agent_dropdown
+        properties: {enabled: false, include_placeholder: true, placeholder: Unassigned, role: form-component}
+        type: DropDown
+      - layout_properties: {grid_position: 'RYGDII,SGGUMV'}
+        name: label_4_copy
+        properties: {font_size: 15, text: Due}
+        type: Label
+      - data_bindings:
+        - {code: 'self.ticket_copy[''due'']', property: date, writeback: true}
+        - {code: not self.ticket_locked, property: enabled, writeback: false}
+        event_bindings: {change: update_ticket}
+        layout_properties: {grid_position: 'RYGDII,XMZYCR'}
+        name: date_picker_1
+        properties: {enabled: false, format: '%d/%m/%Y', role: form-component, visible: true}
+        type: DatePicker
+      layout_properties: {slot: spacer-slot}
+      name: column_panel_1_copy
+      properties: {col_widths: '{"JEHSDG":20,"PJXTPW":40,"SDCMLR":20,"WBLDCL":40,"PPQYOY":20,"OHXWXB":40,"NWMJML":20,"YNJSSD":40,"HUPCIV":20,"JMCYXG":40,"SGGUMV":20,"XMZYCR":40}', role: secondary-panel}
+      type: ColumnPanel
+    layout_properties: {}
+    name: spacer_2
+    properties:
+      spacing:
+        padding: [null, 20px, null, 30px]
+    type: form:Components.Reusable.Spacer
+  form_static_slot:
+  - components:
+    - components:
+      - layout_properties: {}
+        name: label_1_copy
+        properties: {role: secondary-panel-title, spacing_above: none, spacing_below: none, text: Ticket Details}
+        type: Label
+      - event_bindings: {click: lock_link_click}
+        layout_properties: {}
+        name: lock_link
+        properties: {font_size: 23, foreground: 'theme:Lilac 500', icon: 'fa:lock', spacing_above: none, spacing_below: none}
+        type: Link
+      layout_properties: {slot: spacer-slot}
+      name: flow_panel_5
+      properties: {align: justify, spacing_above: none, spacing_below: none}
+      type: FlowPanel
+    layout_properties: {}
+    name: spacer_1
+    properties:
+      spacing:
+        padding: [20px, 30px, 20px, 30px]
+    type: form:Components.Reusable.Spacer
+  primary_scrolling_slot:
+  - components:
+    - components:
+      - components:
+        - components:
+          - layout_properties: {full_width_row: false, grid_position: 'BLBWHZ,JXOWCE'}
+            name: label_5
+            properties: {align: right, text: To}
+            type: Label
+          - data_bindings:
+            - {code: 'self.message[''type'']', property: selected_value, writeback: true}
+            layout_properties: {grid_position: 'BLBWHZ,RAZPYG'}
+            name: to_dropdown
+            properties:
+              role: [form-component, muted-dropdown]
+            type: DropDown
+          layout_properties: {grid_position: 'FSUXPP,WUBQDT'}
+          name: column_panel_1
+          properties: {col_spacing: tiny}
+          type: ColumnPanel
+        - data_bindings:
+          - {code: 'self.message[''details'']', property: text, writeback: true}
+          event_bindings: {}
+          layout_properties: {grid_position: ''}
+          name: message_detail_area
+          properties: {auto_expand: true, height: 119.0595703125, role: text-form-component}
+          type: TextArea
+        - components:
+          - components:
+            - layout_properties: {slot: button-text-slot}
+              name: cancel_message_button
+              properties: {bold: true, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: Cancel}
+              type: Label
+            event_bindings: {click: cancel_message_button_click}
+            name: cancel_message_btn
+            properties: {align: left, size: small, visible: true}
+            type: form:Components.Reusable.AppButton
+          - components:
+            - layout_properties: {slot: icon-slot}
+              name: save_ticket_button
+              properties: {fill: 'theme:White', size: 16}
+              type: form:Components.Icons.Send
+            - layout_properties: {slot: button-text-slot}
+              name: label_2_copy_copy_2
+              properties: {bold: true, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: Save}
+              type: Label
+            event_bindings: {click: send_message_button_click}
+            name: send_button
+            properties: {align: left, size: small, visible: true}
+            type: form:Components.Reusable.AppButton
+          layout_properties: {grid_position: ''}
+          name: flow_panel_1
+          properties: {align: center, spacing_above: medium}
+          type: FlowPanel
+        layout_properties: {grid_position: 'XZMHGV,FOGNGS'}
+        name: ticket_card
+        properties:
+          role: [ticket-message]
+          visible: true
+        type: ColumnPanel
+      layout_properties: {slot: spacer-slot}
+      name: ticket_reply
+      properties: {visible: false}
+      type: ColumnPanel
+    layout_properties: {}
+    name: spacer_6
+    properties:
+      spacing:
+        padding: [null, 50px, 15px, 50px]
+    type: form:Components.Reusable.Spacer
+  - components:
+    - layout_properties: {slot: spacer-slot}
+      name: messages_repeating_panel
+      properties: {item_template: Components.Ticket.Message}
+      type: RepeatingPanel
+    layout_properties: {}
+    name: spacer_5
+    properties:
+      spacing:
+        padding: [null, 40px, 20px, 40px]
+    type: form:Components.Reusable.Spacer
+  primary_static_slot:
+  - components:
+    - components:
+      - layout_properties: {slot: button-text-slot}
+        name: label_2_copy_2
+        properties: {bold: true, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: Reply}
+        type: Label
+      - layout_properties: {slot: icon-slot}
+        name: reply_1
+        properties: {fill: 'theme:White', size: 20}
+        type: form:Components.Icons.Reply
+      event_bindings: {click: add_message_button_click}
+      layout_properties: {slot: spacer-slot}
+      name: add_message_button
+      properties: {align: right, size: small, visible: true}
+      type: form:Components.Reusable.AppButton
+    - components:
+      - data_bindings:
+        - {code: 'f"#{self.ticket[''number'']}"', property: text, writeback: false}
+        layout_properties: {}
+        name: ticket_num_label
+        properties: {bold: true, font_size: 12, role: no-padding, spacing_above: none, spacing_below: none, text: '#000'}
+        type: Label
+      - data_bindings: []
+        event_bindings: {}
+        layout_properties: {}
+        name: overdue_label
+        properties: {bold: true, font_size: 12, foreground: 'theme:Error 500', role: no-padding, spacing_above: none, spacing_below: none, text: OVERDUE, visible: false}
+        type: Label
+      layout_properties: {slot: spacer-slot}
+      name: flow_panel_3
+      properties: {role: no-padding, spacing_above: none, spacing_below: none}
+      type: FlowPanel
+    - components:
+      - data_bindings:
+        - {code: 'f"{self.ticket[''customer''][''first_name'']} {self.ticket[''customer''][''last_name'']}"', property: text, writeback: false}
+        layout_properties: {}
+        name: customer_name_label
+        properties: {bold: true, font_size: 14, role: no-padding, spacing_above: none, spacing_below: none, text: Name}
+        type: Label
+      - data_bindings:
+        - {code: 'self.ticket[''due'']', property: text, writeback: false}
+        layout_properties: {}
+        name: due_date_label
+        properties: {bold: true, font_size: 14, role: no-padding, spacing_above: none, spacing_below: none, text: Due Date}
+        type: Label
+      layout_properties: {slot: spacer-slot}
+      name: flow_panel_3_copy
+      properties: {align: justify, role: no-padding, spacing_above: small, spacing_below: none, vertical_align: middle}
+      type: FlowPanel
+    - data_bindings:
+      - {code: 'self.ticket[''title'']', property: text, writeback: false}
+      layout_properties: {slot: spacer-slot}
+      name: title_label
+      properties: {font_size: 14, foreground: 'theme:Grey 300', role: no-padding, spacing_above: none, spacing_below: none, text: Title}
+      type: Label
+    layout_properties: {}
+    name: spacer_4
+    properties:
+      spacing:
+        padding: [40px, 45px, null, 45px]
+    type: form:Components.Reusable.Spacer
+  title_slot:
+  - layout_properties: {}
+    name: label_1
+    properties: {text: Ticket}
+    type: Label
+is_package: true
+layout:
+  form_event_bindings: {}
+  type: form:Layouts.AppLayouts.PrimaryWithTwoSecondary

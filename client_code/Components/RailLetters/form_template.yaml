@@ -1,0 +1,12 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''letter'']', property: text, writeback: false}
+  event_bindings: {click: rail_link_click}
+  layout_properties: {grid_position: 'UVPIEJ,MPULBW'}
+  name: rail_link
+  properties: {align: center, bold: true, font_size: 12, foreground: 'theme:Primary 200', spacing_above: none, spacing_below: none, text: A}
+  type: Link
+container:
+  properties: {foreground: '', spacing_above: none, spacing_below: none}
+  type: ColumnPanel
+is_package: true

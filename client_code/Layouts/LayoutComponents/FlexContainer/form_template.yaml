@@ -1,0 +1,11 @@
+components: []
+container:
+  properties:
+    html: "<div anvil-name=\"main-content-section\" anvil-slot=\"slot\" class=\"content-sections-container\">\n  \n</div>"
+    role: [flex, flex-1]
+  type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: true, important: true, name: use_background, type: boolean}

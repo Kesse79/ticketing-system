@@ -1,0 +1,9 @@
+components: []
+container:
+  properties: {html: <div anvil-name="spacer" anvil-slot="spacer-slot"></div>}
+  type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+is_package: true
+properties:
+- {default_binding_prop: true, important: true, name: spacing, type: spacing}

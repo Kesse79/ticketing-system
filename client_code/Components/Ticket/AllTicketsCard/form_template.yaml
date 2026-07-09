@@ -1,0 +1,80 @@
+components:
+- event_bindings: {change: select_ticket_change}
+  layout_properties: {column: JKSDUP}
+  name: select_ticket
+  properties: {align: left, text: '', visible: true}
+  type: CheckBox
+- layout_properties: {column: VJQQOR}
+  name: user_1
+  properties: {align: left, primary_fill: 'theme:Lilac 700', secondary_fill: 'theme:Primary 200', size: 45}
+  type: form:Components.Icons.User
+- components:
+  - data_bindings:
+    - {code: 'f"{self.item[''customer''][''first_name'']} {self.item[''customer''][''last_name'']}"', property: text, writeback: false}
+    event_bindings: {click: cust_name_link_click}
+    layout_properties: {grid_position: 'BDSQWW,XCGFGC'}
+    name: cust_name_link
+    properties: {bold: true, font_size: 12, foreground: 'theme:Grey 300', role: no-padding, spacing_above: none, spacing_below: small, text: Customer Name}
+    type: Link
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''title'']', property: text, writeback: false}
+      event_bindings: {click: ticket_title_link_click}
+      layout_properties: {}
+      name: ticket_title_link
+      properties: {col_spacing: none, foreground: 'theme:Grey 500', role: no-padding, spacing_above: none, spacing_below: none, text: Ticket Title}
+      type: Link
+    - layout_properties: {}
+      name: urgent_dot
+      properties: {align: left, font_size: 10, foreground: 'theme:Error 500', icon: 'fa:circle', role: no-padding, spacing_above: none, spacing_below: none, tooltip: Urgent, visible: false}
+      type: Label
+    layout_properties: {grid_position: 'LUEKRC,AQYGGI'}
+    name: flow_panel_1
+    properties: {role: no-padding, spacing: tiny, spacing_above: none, spacing_below: small, vertical_align: top}
+    type: FlowPanel
+  - data_bindings:
+    - {code: 'self.item[''category''][''name''] if self.item[''category''] else ''''', property: text, writeback: false}
+    layout_properties: {grid_position: 'QZTYRW,SLIRGH'}
+    name: ticket_cat_label
+    properties: {bold: false, font_size: 14, foreground: 'theme:Grey 200', role: no-padding, spacing_above: none, spacing_below: none, text: category}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''owner''][''email''] if self.item[''owner''] is not None else "UNASSIGNED"', property: text, writeback: false}
+    layout_properties: {grid_position: 'QZTYRW,USYQQQ'}
+    name: agent_name_label
+    properties: {bold: true, border: '', font_size: 14, foreground: 'theme:Grey 400', role: no-padding, spacing_above: none, spacing_below: none, text: agent}
+    type: Label
+  layout_properties: {column: OJLQEN}
+  name: column_panel_1
+  properties: {col_widths: '{"SLIRGH":25,"USYQQQ":35}', spacing_above: none, spacing_below: none}
+  type: ColumnPanel
+- data_bindings:
+  - {code: self.priorities, property: items, writeback: false}
+  - {code: 'self.item[''priority'']', property: selected_value, writeback: false}
+  event_bindings: {change: priority_dropdown_change}
+  layout_properties: {column: GCPAYM}
+  name: priority_dropdown
+  properties:
+    bold: true
+    font_size: 14
+    foreground: theme:Grey 300
+    role: [form-component, muted-dropdown]
+  type: DropDown
+- layout_properties: {column: RQUJBD}
+  name: label_2
+  properties: {align: left, foreground: 'theme:Grey 100', icon: 'fa:ellipsis-v', role: no-padding, spacing_above: none, spacing_below: none}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''date''].strftime("%d %b %Y")', property: text, writeback: false}
+  layout_properties: {column: LOEAUW}
+  name: date_label
+  properties: {align: left, bold: true, foreground: 'theme:Grey 200', role: tiny-font, spacing_above: none, spacing_below: none, text: date created}
+  type: Label
+- layout_properties: {}
+  name: ticket_status_indicator
+  properties: {status: OVERDUE, visible: false}
+  type: form:Components.Ticket.TicketStatusIndicator
+container:
+  properties: {align: left, role: all-tickets-card}
+  type: DataRowPanel
+is_package: true

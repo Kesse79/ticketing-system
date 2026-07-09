@@ -1,0 +1,61 @@
+components_by_slot:
+  slot_2:
+  - components:
+    - layout_properties: {slot: slot}
+      name: sliding_panel_with_shield
+      properties: {open: false}
+      type: form:Layouts.LayoutComponents.SlidingPanelWithShield
+    - layout_properties: {slot: slot}
+      name: scrolling_rail_1
+      properties: {}
+      type: form:Layouts.LayoutComponents.ScrollingRail
+    - layout_properties: {slot: slot}
+      name: primary_content_1
+      properties: {}
+      type: form:Layouts.LayoutComponents.PrimaryContent
+    - layout_properties: {slot: slot}
+      name: side_details_1
+      properties: {visible: true}
+      type: form:Layouts.LayoutComponents.SideDetails
+    layout_properties: {}
+    name: main_content_container
+    properties: {}
+    type: form:Layouts.LayoutComponents.FlexContainer
+is_package: true
+layout: {type: 'form:Layouts.AppLayouts.AppBase'}
+properties:
+- {default_binding_prop: true, default_value: false, important: true, name: slide_open, type: boolean}
+- {default_value: false, important: true, name: details_visible, type: boolean}
+slots:
+  details_scrolling_slot:
+    index: 0
+    set_layout_properties: {slot: details-content-slot}
+    target: {name: side_details_1, type: container}
+  details_static_slot:
+    index: 0
+    set_layout_properties: {slot: details-content-static-slot}
+    target: {name: side_details_1, type: container}
+  primary_scrolling_slot:
+    index: 0
+    set_layout_properties: {slot: primary-content-slot}
+    target: {name: primary_content_1, type: container}
+  primary_static_slot:
+    index: 0
+    set_layout_properties: {slot: primary-content-static-slot}
+    target: {name: primary_content_1, type: container}
+  rail_slot:
+    index: 0
+    set_layout_properties: {slot: rail-content-slot}
+    target: {name: scrolling_rail_1, type: container}
+  sliding_scrolling_slot:
+    index: 0
+    set_layout_properties: {slot: panel-content-slot}
+    target: {name: sliding_panel_with_shield, type: container}
+  sliding_static_slot:
+    index: 0
+    set_layout_properties: {slot: panel-content-static-slot}
+    target: {name: sliding_panel_with_shield, type: container}
+  title_slot:
+    index: 0
+    set_layout_properties: {}
+    target: {name: slot_1, type: slot}

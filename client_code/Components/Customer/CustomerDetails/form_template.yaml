@@ -1,0 +1,39 @@
+components:
+- layout_properties: {grid_position: 'CUYJJO,VDPRLP'}
+  name: user_1
+  properties: {primary_fill: 'theme:White', secondary_fill: 'theme:Primary 300', size: 80}
+  type: form:Components.Icons.User
+- data_bindings:
+  - {code: 'f"{self.item[''first_name'']} {self.item[''last_name'']}" if self.item else ""', property: text, writeback: false}
+  layout_properties: {grid_position: 'XVGEKT,MRGKOR'}
+  name: label_1
+  properties: {font_size: 20, role: no-padding, spacing_above: medium, spacing_below: none, text: Name}
+  type: Label
+- data_bindings:
+  - {code: 'f"{self.item[''company'']} {self.item[''title'']}" if self.item else ""', property: text, writeback: false}
+  layout_properties: {grid_position: 'OTGFTC,NQWUSD'}
+  name: label_2
+  properties:
+    font_size: 16
+    foreground: theme:Grey 200
+    role: no-padding
+    spacing_above: none
+    spacing_below: small
+    text: |
+      Company, Position
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''phone''] if self.item else ""', property: text, writeback: false}
+  layout_properties: {grid_position: 'OOXGDE,WFVWNX'}
+  name: label_3
+  properties: {font_size: 14, foreground: 'theme:Grey 200', role: no-padding, spacing_below: none, text: phone}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''email''] if self.item else ""', property: text, writeback: false}
+  layout_properties: {grid_position: 'VFRRSP,BVRKNN'}
+  name: label_4
+  properties: {font_size: 14, foreground: 'theme:Grey 200', role: no-padding, spacing_above: none, spacing_below: none, text: email}
+  type: Label
+container: {type: ColumnPanel}
+custom_component: true
+is_package: true

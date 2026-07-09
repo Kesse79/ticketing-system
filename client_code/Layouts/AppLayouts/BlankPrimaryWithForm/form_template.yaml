@@ -1,0 +1,38 @@
+components_by_slot:
+  slot_2:
+  - components:
+    - layout_properties: {slot: slot}
+      name: primary_content_1
+      properties: {}
+      type: form:Layouts.LayoutComponents.PrimaryContent
+    - layout_properties: {slot: slot}
+      name: side_form_1
+      properties: {}
+      type: form:Layouts.LayoutComponents.SideForm
+    layout_properties: {}
+    name: main_content_container
+    properties: {use_background: false}
+    type: form:Layouts.LayoutComponents.FlexContainer
+is_package: true
+layout: {type: 'form:Layouts.AppLayouts.AppBase'}
+slots:
+  form_scrolling_slot:
+    index: 0
+    set_layout_properties: {slot: form-content-slot}
+    target: {name: side_form_1, type: container}
+  form_static_slot:
+    index: 0
+    set_layout_properties: {slot: form-content-static-slot}
+    target: {name: side_form_1, type: container}
+  primary_scrolling_slot:
+    index: 0
+    set_layout_properties: {slot: primary-content-slot}
+    target: {name: primary_content_1, type: container}
+  primary_static_slot:
+    index: 0
+    set_layout_properties: {slot: primary-content-static-slot}
+    target: {name: primary_content_1, type: container}
+  title_slot:
+    index: 0
+    set_layout_properties: {}
+    target: {name: slot_1, type: slot}

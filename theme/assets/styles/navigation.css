@@ -1,0 +1,32 @@
+.navbar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-top {}
+
+.nav-bottom {}
+
+.navlink-component {
+  display: flex;
+  padding: 5px 15px 5px 30px;
+  height: 48px;
+  align-items: center;
+  color: var(--primary-300);
+  cursor: pointer;
+}
+.navlink-text {
+  padding-left: 20px;
+}
+
+.navlink-component:hover *{
+  color: var(--white);
+}
+
+/* current page or active navlink */
+.navlink-component.activeNav * {
+  color: var(--white);
+  fill: var(--secondary-500) !important;
+}

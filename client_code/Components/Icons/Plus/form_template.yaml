@@ -1,0 +1,37 @@
+components: []
+container:
+  properties:
+    html: |-
+      <div anvil-name="component" style="display: flex">
+        <div style="display:flex">
+          <?xml version="1.0" encoding="utf-8"?>
+          <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+          <svg anvil-name="icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve" width="100px">
+            <style type="text/css">
+              .st2{fill:none;stroke:#000000;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+            </style>
+            <g>
+              <circle class="st2" cx="35" cy="35" r="32"/>
+              <g>
+                <line class="st2" x1="23.97" y1="35" x2="46.03" y2="35"/>
+                <line class="st2" x1="35" y1="23.97" x2="35" y2="46.03"/>
+              </g>
+            </g>
+          </svg>
+
+        </div>
+      </div>
+  type: HtmlTemplate
+custom_component: true
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', important: true, name: fill, type: color}
+- {description: '16', important: true, name: size, type: number}
+- default_value: left
+  designer_hint: align-horizontal
+  important: true
+  name: align
+  options: [left, center, right, full]
+  type: enum
+- {default_value: true, designer_hint: visible, important: true, name: visible, type: boolean}
