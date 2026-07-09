@@ -5,6 +5,9 @@ nav_dic = {
   'login': {
     'active': None,
     'form_name': 'Pages.Login' } ,
+  'customer_portal': {
+    'active': None,
+    'form_name': 'Pages.PublicTicketIntake' } ,
   'dashboard': {
     'active': 'dashboard',
     'form_name': 'Pages.Dashboard' } ,

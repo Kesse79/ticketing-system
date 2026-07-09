@@ -39,6 +39,18 @@ db_schema:
       name: phone
       type: string
     - admin_ui: {width: 200}
+      name: company_address
+      type: string
+    - admin_ui: {width: 200}
+      name: company_vat
+      type: string
+    - admin_ui: {width: 200}
+      name: id_numbers
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: folder_name
+      type: string
+    - admin_ui: {width: 200}
       name: created
       type: datetime
     server: full
@@ -176,7 +188,7 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true, use_google: true}
+- client_config: {allow_remember_me: true, allow_signup: false, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true, use_google: true}
   server_config: {user_table: users}
   source: /runtime/services/anvil/users.yml
 - client_config: {}

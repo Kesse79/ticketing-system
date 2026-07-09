@@ -1,0 +1,98 @@
+<main class="customer-intake-shell">
+  <section class="customer-intake-hero">
+    <div class="customer-intake-hero-copy">
+      <p class="customer-intake-kicker">Customer ticket request</p>
+      <h1>Create a customer ticket</h1>
+      <p class="customer-intake-subtitle">Submit company details, folder name, ID numbers, and calculated fees in one request.</p>
+    </div>
+    <anvil-component type="Button" name="operator_login_button" prop:text="Operator login" prop:role="customer-intake-secondary"></anvil-component>
+  </section>
+
+  <section class="customer-intake-card">
+    <section class="customer-intake-section">
+      <div class="customer-intake-section-header">
+        <p class="customer-intake-kicker">Step 1</p>
+        <h2>Company profile</h2>
+      </div>
+      <div class="customer-intake-grid">
+        <label>
+          <span>Company name</span>
+          <anvil-component type="TextBox" name="company_name_input" prop:placeholder="Company name" prop:role="customer-intake-input"></anvil-component>
+        </label>
+        <label>
+          <span>Company VAT</span>
+          <anvil-component type="TextBox" name="company_vat_input" prop:placeholder="VAT number" prop:role="customer-intake-input"></anvil-component>
+        </label>
+      </div>
+      <label>
+        <span>Company address</span>
+        <anvil-component type="TextArea" name="company_address_area" prop:placeholder="Street, postal code, city, country" prop:height="96" prop:role="customer-intake-input"></anvil-component>
+      </label>
+    </section>
+
+    <section class="customer-intake-section">
+      <div class="customer-intake-section-header">
+        <p class="customer-intake-kicker">Step 2</p>
+        <h2>Contact details</h2>
+      </div>
+      <div class="customer-intake-grid">
+        <label>
+          <span>Contact name</span>
+          <anvil-component type="TextBox" name="contact_first_name_input" prop:placeholder="Name" prop:role="customer-intake-input"></anvil-component>
+        </label>
+        <label>
+          <span>Contact surname</span>
+          <anvil-component type="TextBox" name="contact_last_name_input" prop:placeholder="Surname" prop:role="customer-intake-input"></anvil-component>
+        </label>
+        <label>
+          <span>Company email</span>
+          <anvil-component type="TextBox" name="company_email_input" prop:placeholder="email@example.com" prop:role="customer-intake-input"></anvil-component>
+        </label>
+        <label>
+          <span>Company phone</span>
+          <anvil-component type="TextBox" name="company_phone_input" prop:placeholder="Phone number" prop:role="customer-intake-input"></anvil-component>
+        </label>
+      </div>
+    </section>
+
+    <section class="customer-intake-section">
+      <div class="customer-intake-section-header">
+        <p class="customer-intake-kicker">Step 3</p>
+        <h2>ID numbers and folder</h2>
+      </div>
+      <label>
+        <span>Name of folder to be created</span>
+        <anvil-component type="TextBox" name="folder_name_input" prop:placeholder="Folder name" prop:role="customer-intake-input"></anvil-component>
+      </label>
+      <div class="customer-intake-id-entry">
+        <anvil-component type="TextBox" name="id_number_input" prop:placeholder="Add ID number" prop:role="customer-intake-input"></anvil-component>
+        <anvil-component type="Button" name="add_id_button" prop:text="Add ID" prop:role="customer-intake-primary"></anvil-component>
+      </div>
+      <div class="customer-intake-id-meta">
+        <anvil-component type="Label" name="id_count_label" prop:text="0 ID numbers"></anvil-component>
+        <anvil-component type="Label" name="id_limit_label" prop:text="100 remaining this session"></anvil-component>
+      </div>
+      <anvil-component type="RepeatingPanel" name="id_numbers_panel" prop:item_template="Ticketing_System.Components.Public.IDNumberItem"></anvil-component>
+    </section>
+
+    <section class="customer-intake-summary">
+      <div>
+        <p class="customer-intake-kicker">Fee estimate</p>
+        <h2>Invoice calculator</h2>
+      </div>
+      <div class="customer-intake-total">
+        <span>One time fee</span>
+        <anvil-component type="Label" name="one_time_total_label" prop:text="0 x 27 EUR = 0 EUR"></anvil-component>
+      </div>
+      <div class="customer-intake-total">
+        <span>Annual fee</span>
+        <anvil-component type="Label" name="annual_total_label" prop:text="0 x 9 EUR = 0 EUR per year"></anvil-component>
+      </div>
+      <anvil-component type="Label" name="status_label" prop:text="" prop:visible="false"></anvil-component>
+      <div class="customer-intake-actions">
+        <anvil-component type="Button" name="clear_button" prop:text="Clear" prop:role="customer-intake-secondary"></anvil-component>
+        <anvil-component type="Button" name="submit_button" prop:text="Create ticket" prop:role="customer-intake-primary"></anvil-component>
+      </div>
+    </section>
+  </section>
+</main>

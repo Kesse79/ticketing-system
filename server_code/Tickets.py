@@ -10,6 +10,116 @@ from datetime import datetime, timedelta, date
 from .utils import Validation
 from . import Data
 
+PUBLIC_TICKET_DUE_DAYS = 3
+PUBLIC_ONE_TIME_FEE = 27
+PUBLIC_ANNUAL_FEE = 9
+PUBLIC_MAX_ID_NUMBERS = 100
+
+
+def _clean_public_text(payload, key):
+  return (payload.get(key) or "").strip()
+
+
+def _validate_public_ticket_payload(payload):
+  payload = payload or {}
+  cleaned = {
+    "company_name": _clean_public_text(payload, "company_name"),
+    "company_address": _clean_public_text(payload, "company_address"),
+    "company_vat": _clean_public_text(payload, "company_vat"),
+    "contact_first_name": _clean_public_text(payload, "contact_first_name"),
+    "contact_last_name": _clean_public_text(payload, "contact_last_name"),
+    "company_email": _clean_public_text(payload, "company_email"),
+    "company_phone": _clean_public_text(payload, "company_phone"),
+    "folder_name": _clean_public_text(payload, "folder_name"),
+  }
+  id_numbers = [str(value).strip() for value in payload.get("id_numbers", []) if str(value).strip()]
+  cleaned["id_numbers"] = id_numbers
+
+  missing = [key for key, value in cleaned.items() if key != "id_numbers" and not value]
+  if not id_numbers:
+    missing.append("id_numbers")
+  if len(id_numbers) > PUBLIC_MAX_ID_NUMBERS:
+    raise Exception("A maximum of 100 ID numbers can be added per ticket.")
+  if missing:
+    raise Exception("Required customer ticket fields are missing.")
+  return cleaned
+
+
+def _format_public_ticket_details(data):
+  count = len(data["id_numbers"])
+  one_time_total = count * PUBLIC_ONE_TIME_FEE
+  annual_total = count * PUBLIC_ANNUAL_FEE
+  id_lines = "\n".join(f"- {value}" for value in data["id_numbers"])
+  return f"""Customer ticket request
+
+Company profile
+Company name: {data['company_name']}
+Company address: {data['company_address']}
+Company VAT: {data['company_vat']}
+Contact: {data['contact_first_name']} {data['contact_last_name']}
+Company email: {data['company_email']}
+Company phone: {data['company_phone']}
+
+Folder to create
+{data['folder_name']}
+
+ID numbers ({count})
+{id_lines}
+
+Invoice calculator
+One time fee: {count} x {PUBLIC_ONE_TIME_FEE} EUR = {one_time_total} EUR
+Annual fee: {count} x {PUBLIC_ANNUAL_FEE} EUR = {annual_total} EUR per year
+"""
+
+
+@anvil.server.callable
+@tables.in_transaction
+def create_public_ticket(payload):
+  data = _validate_public_ticket_payload(payload)
+  customer_data = {
+    "company": data["company_name"],
+    "company_address": data["company_address"],
+    "company_vat": data["company_vat"],
+    "first_name": data["contact_first_name"],
+    "last_name": data["contact_last_name"],
+    "title": "Customer contact",
+    "email": data["company_email"],
+    "phone": data["company_phone"],
+    "id_numbers": data["id_numbers"],
+    "folder_name": data["folder_name"],
+  }
+
+  customer = app_tables.customers.get(email=data["company_email"])
+  if customer:
+    customer.update(**customer_data)
+  else:
+    customer = app_tables.customers.add_row(created=datetime.now(), **customer_data)
+
+  current_ticket_row = app_tables.currentticketno.get()
+  ticket_number = current_ticket_row["number"]
+  owner = app_tables.users.get(email="demo@anvil.works")
+  ticket = app_tables.tickets.add_row(
+    title=f"Customer request - {data['company_name']}",
+    category=Data.NEW_CATEGORY,
+    priority=Data.NEW_PRIORITY,
+    status=Data.OPEN,
+    date=datetime.now(),
+    customer=customer,
+    due=date.today() + timedelta(days=PUBLIC_TICKET_DUE_DAYS),
+    owner=owner,
+    number=ticket_number,
+  )
+  current_ticket_row["number"] += 1
+
+  app_tables.messages.add_row(
+    details=_format_public_ticket_details(data),
+    date=datetime.now(),
+    ticket=ticket,
+    type=Data.INCOMING,
+  )
+  return {"number": ticket_number}
+
+
 @authenticated_callable
 @tables.in_transaction
 def add_ticket(ticket_dict, text, customer):

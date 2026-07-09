@@ -158,3 +158,221 @@
 .shield.open + .sliding-panel {
   right: 430px;
 }
+
+.customer-intake-shell {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--lilac-850) 0%, var(--lilac-750) 42%, var(--grey-050) 42%, var(--grey-050) 100%);
+  color: var(--grey-950);
+  font-family: 'Barlow', sans-serif;
+  padding: 32px;
+}
+
+.customer-intake-hero {
+  max-width: 1120px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--white);
+}
+
+.customer-intake-hero-copy {
+  max-width: 680px;
+}
+
+.customer-intake-hero h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.customer-intake-subtitle {
+  max-width: 620px;
+  margin: 12px 0 0;
+  color: var(--grey-100);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.customer-intake-kicker {
+  margin: 0 0 4px;
+  color: var(--grey-500);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.customer-intake-card {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 18px;
+  align-items: start;
+}
+
+.customer-intake-section,
+.customer-intake-summary {
+  background: var(--white);
+  border: 1px solid var(--grey-100);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(54, 49, 82, 0.08);
+}
+
+.customer-intake-section-header {
+  margin-bottom: 18px;
+}
+
+.customer-intake-section h2,
+.customer-intake-summary h2 {
+  margin: 0 0 18px;
+  color: var(--lilac-850);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.customer-intake-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.customer-intake-shell label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--grey-600);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.customer-intake-id-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.customer-intake-id-meta,
+.customer-intake-total,
+.customer-intake-id-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer-intake-id-meta {
+  color: var(--grey-500);
+  font-size: 13px;
+  margin: 12px 0;
+}
+
+.customer-intake-id-row {
+  background: var(--grey-050);
+  border: 1px solid var(--grey-100);
+  border-radius: 6px;
+  margin-top: 8px;
+  padding: 8px 0;
+}
+
+.customer-intake-summary {
+  position: sticky;
+  top: 24px;
+}
+
+.customer-intake-total {
+  border-bottom: 1px solid var(--grey-100);
+  padding: 14px 0;
+}
+
+.customer-intake-total span {
+  color: var(--grey-500);
+}
+
+.customer-intake-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.anvil-role-customer-intake-input.form-control,
+textarea.anvil-role-customer-intake-input.form-control {
+  border: 1px solid var(--grey-200);
+  border-radius: 6px;
+  box-shadow: none;
+  color: var(--grey-800);
+}
+
+.anvil-role-customer-intake-primary > button,
+.anvil-role-customer-intake-secondary > button {
+  border-radius: 6px;
+  font-weight: 600;
+  min-height: 42px;
+}
+
+.anvil-role-customer-intake-primary > button {
+  background: var(--lilac-750);
+  border-color: var(--lilac-750);
+  color: var(--white);
+}
+
+.anvil-role-customer-intake-secondary > button {
+  background: var(--white);
+  border-color: var(--grey-200);
+  color: var(--lilac-850);
+}
+
+.anvil-role-customer-intake-text-button > button {
+  background: transparent;
+  border: none;
+  color: var(--lilac-700);
+  padding: 4px 0;
+}
+
+.anvil-role-customer-intake-success,
+.anvil-role-customer-intake-error {
+  display: block;
+  border-radius: 6px;
+  margin-top: 18px;
+  padding: 12px;
+}
+
+.anvil-role-customer-intake-success {
+  background: var(--secondary-100);
+  color: var(--secondary-900);
+}
+
+.anvil-role-customer-intake-error {
+  background: var(--error-100);
+  color: var(--error-800);
+}
+
+@media (max-width: 860px) {
+  .customer-intake-shell {
+    padding: 20px;
+  }
+
+  .customer-intake-hero,
+  .customer-intake-card,
+  .customer-intake-grid,
+  .customer-intake-id-entry {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-intake-hero {
+    flex-direction: column;
+  }
+
+  .customer-intake-hero h1 {
+    font-size: 34px;
+  }
+
+  .customer-intake-summary {
+    position: static;
+  }
+}
