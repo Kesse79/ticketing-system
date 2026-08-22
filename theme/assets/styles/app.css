@@ -161,7 +161,7 @@
 
 .customer-intake-shell {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--lilac-850) 0%, var(--lilac-750) 42%, var(--grey-050) 42%, var(--grey-050) 100%);
+  background: #ff0000;
   color: var(--grey-950);
   font-family: 'Barlow', sans-serif;
   padding: 32px;
